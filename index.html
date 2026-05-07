@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+// ── VORLÄUFIGER PASSWORTSCHUTZ ──────────────────
+// Zum Entfernen: diesen ganzen Block löschen
+(function(){
+  if(sessionStorage.getItem('site_unlocked')==='1') return
+  document.body.style.display='none'
+  const pw = prompt('🔒 Passwort eingeben:')
+  if(pw === '0'){
+    sessionStorage.setItem('site_unlocked','1')
+    document.body.style.display=''
+  } else {
+    document.body.innerHTML='<div style="height:100vh;display:flex;align-items:center;justify-content:center;background:#060504;color:#b8963e;font-family:Georgia,serif;font-size:1.2rem;letter-spacing:.2em">ZUGANG VERWEIGERT</div>'
+  }
+})()
+// ── ENDE PASSWORTSCHUTZ ─────────────────────────
+
 <html lang="de">
 <head>
 <meta charset="UTF-8"/>
